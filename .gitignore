@@ -2,7 +2,8 @@
 node_modules/
 jspm_packages/
 
-# OS generated files 
+# OS generated files
+.idea
 .DS_Store
 .DS_Store?
 ._*
