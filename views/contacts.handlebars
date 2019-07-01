@@ -1,14 +1,15 @@
 <div>
 	<a class="nav-button btn btn-primary" href="/contacts/new" role="button">Add New Contact</a>
-	<h1>Someone's Contacts:</h1>
+	<h1>Welcome, {{owner}}.  </h1>
+    <h3>These are your {{#if type}}{{type}}{{/if}} Contacts:</h3>
 </div>
 <div class="form-group">
 	<label for="filterContacts">Filter by Type</label>
 	<select id="filterContacts" class="form-control" name="contactType">
 		<option disabled selected> -- select a type -- </option>
 		<option value="">All</option>
-		<option value="Personal">Personal</option>
-		<option value="Business">Business</option>
+		<option value="Email">Email</option>
+		<option value="Phone">Phone</option>
 	</select>
 </div>
 <table class="table">
@@ -24,6 +25,18 @@
 	</thead>
 	<tbody>
 		{{!-- Our Handlebars code goes here! --}}
-		{{!-- <td><span class="delete glyphicon glyphicon-remove"></span></td> --}}
+        {{!-- can use this.param or just the parameter --}}
+    {{#each contacts}}
+        <tr data-id="{{id}}">
+            <td>{{this.firstName}}</td>
+            <td>{{this.lastName}}</td>
+            <td>{{this.contactType}}</td>
+            <td>{{phoneNumber}}</td>
+            <td>{{emailAddress}}</td>
+            <td><span class="delete glyphicon glyphicon-remove"></span></td>
+        </tr>
+    {{/each}}
+
+
 	</tbody>
 </table>

@@ -21,8 +21,8 @@ module.exports = function(app) {
 	        firstName,
             lastName,
             contactType,
-            phoneNumber,
-            emailAddress
+            phoneNumber: phoneNumber || null,
+            emailAddress: emailAddress || null
         }
 
         // console.log("original:  ", newContact)
@@ -43,6 +43,15 @@ module.exports = function(app) {
 
     // this route should delete a contact from the table, if the id matches the ':id' url param
 	app.delete("/api/contacts/:id", function(req, res) {
-        
+        db.Contact.destroy({
+            where: {
+                id: req.params.id
+            }
+        })
+            .then(function(contact) {
+                // deleted contact with id of [id]
+                console.log(`deleted id with id of ${contact.id}`)
+                res.end();
+            })
     });
 }
