@@ -34,9 +34,8 @@ module.exports = function(app) {
                 // console.log("Post post:  ", contact);
                 console.log(`Added contact ${firstName} ${lastName}`)
                 res.json({
-
-                    id: contact.id;
-                })
+                    id: contact.id
+                });
             });
 
 	    // need an ending to stop the cycle
