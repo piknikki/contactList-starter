@@ -2,7 +2,7 @@
 
 const fs = require('fs');
 const path = require('path');
-const Sequelize = require('sequelize');
+const Sequelize = require('sequelize'); // Sequelize is functionality, sequelize is my own connection data
 const basename = path.basename(__filename);
 const env = process.env.NODE_ENV || 'development';
 const config = require(__dirname + '/../config/config.json')[env];
